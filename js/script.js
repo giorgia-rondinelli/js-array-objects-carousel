@@ -28,6 +28,16 @@ const images = [
   },
 ];
 
+setInterval(()=>{
+  imgCollection[counter].classList.remove('active')
+  thumbCollection[counter].classList.remove('active')
+  counter++
+  if(counter===images.length){
+    counter=0
+  }
+  imgCollection[counter].classList.add('active')
+  thumbCollection[counter].classList.add('active')
+},2000)
 
 // elementi 
 const imgContainer= document.querySelector('.my-carousel-images')
@@ -69,6 +79,11 @@ console.log(thumbCollection)
 imgCollection[counter].classList.add('active')
 thumbCollection[counter].classList.add('active')
 
+
+
+
+
+
 // creo funzione per bottone nexr
 btnNext.addEventListener('click', function()
 {
@@ -97,3 +112,5 @@ btnPrev.addEventListener('click',function(){
   thumbCollection[counter].classList.add('active')
 
 })
+
+
