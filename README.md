@@ -15,4 +15,5 @@ Creare un carosello
 - stampo le thumbnails in pagina con il template literal 
 - le raccruppo in una variabile 
 - utilizzando il counter anche per quest'ultime faccio si che al clic dei bottoni il counter aumenti e di conseguenza venga tolta e reinserita la classe active 
-
+- aggiungo un setinterval per creare uno scorrimento automantico 
+-  in quest'ultimo faccio aumentare il counter e di conseguanza tolgo e reinserisco la classe active
