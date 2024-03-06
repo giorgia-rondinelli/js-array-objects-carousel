@@ -33,6 +33,8 @@ const images = [
 const imgContainer= document.querySelector('.my-carousel-images')
 console.log(imgContainer)
 let counter= 0
+const containerThumb= document.querySelector('.my-thumbnails')
+console.log(containerThumb)
 
 // bottoni
 const btnNext=document.querySelector('.my-next')
@@ -52,25 +54,33 @@ for(let i=0;i<images.length; i++){
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
     </div>
   </div>`
+  containerThumb.innerHTML+=`<div class="my-thumbnail">
+  <img class="img-fluid" src="${img.url}" alt="Thumbnail of Svezia picture">
+</div>`
   
 }
 
 // raggruppo elementi con classe my-carousel-item 
 const imgCollection=document.getElementsByClassName('my-carousel-item')
 console.log(imgCollection)
-
+const thumbCollection=document.getElementsByClassName('my-thumbnail')
+console.log(thumbCollection)
 // rendo visibile solo la prima immagine 
 imgCollection[counter].classList.add('active')
+thumbCollection[counter].classList.add('active')
 
 // creo funzione per bottone nexr
 btnNext.addEventListener('click', function()
 {
   imgCollection[counter].classList.remove('active')
+  thumbCollection[counter].classList.remove('active')
   counter++
   if(counter===images.length){
     counter=0
   }
   imgCollection[counter].classList.add('active')
+  thumbCollection[counter].classList.add('active')
+
 
 })
 
@@ -78,10 +88,12 @@ btnNext.addEventListener('click', function()
 // creo funzione per bottone prev 
 btnPrev.addEventListener('click',function(){
   imgCollection[counter].classList.remove('active')
+  thumbCollection[counter].classList.remove('active')
   counter--
   if(counter===-1){
     counter=images.length-1
   }
   imgCollection[counter].classList.add('active')
+  thumbCollection[counter].classList.add('active')
 
 })
