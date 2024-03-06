@@ -28,17 +28,24 @@ const images = [
   },
 ];
 
-// elementi 
-const imgContainer= document.querySelector('.my-carousel-item')
-console.log(imgContainer)
 
+// elementi 
+const imgContainer= document.querySelector('.my-carousel-images')
+console.log(imgContainer)
+let counter= 0
+
+// bottoni
+const btnNext=document.querySelector('.my-next')
+console.log(btnNext)
+const btnPrev=document.querySelector('.my-previous')
+console.log(btnPrev)
 
 // inserisco immagini con template literal
 for(let i=0;i<images.length; i++){
   const img=images[i]
   console.log(img.url)
   console.log(img.title)
-  imgContainer.innerHTML+=`<div class="my-carousel-item active">
+  imgContainer.innerHTML+=`<div class="my-carousel-item ">
     <img class="img-fluid" src="${img.url}" alt="${img.title} picture">
     <div class="item-description px-3">
         <h2>${img.title}</h2>
@@ -47,3 +54,34 @@ for(let i=0;i<images.length; i++){
   </div>`
   
 }
+
+// raggruppo elementi con classe my-carousel-item 
+const imgCollection=document.getElementsByClassName('my-carousel-item')
+console.log(imgCollection)
+
+// rendo visibile solo la prima immagine 
+imgCollection[counter].classList.add('active')
+
+// creo funzione per bottone nexr
+btnNext.addEventListener('click', function()
+{
+  imgCollection[counter].classList.remove('active')
+  counter++
+  if(counter===images.length){
+    counter=0
+  }
+  imgCollection[counter].classList.add('active')
+
+})
+
+
+// creo funzione per bottone prev 
+btnPrev.addEventListener('click',function(){
+  imgCollection[counter].classList.remove('active')
+  counter--
+  if(counter===-1){
+    counter=images.length-1
+  }
+  imgCollection[counter].classList.add('active')
+
+})
